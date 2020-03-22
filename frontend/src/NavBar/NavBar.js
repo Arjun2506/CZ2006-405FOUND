@@ -11,7 +11,7 @@ export default class NavBar extends Component {
             <div>
                 <Navbar bg="primary" variant="dark">
                     <Nav className="mr-auto" style={{"font-size": "200% "}}>
-                        <Nav.Link href="/home">Maps</Nav.Link>
+                        <Nav.Link href="/map">Maps</Nav.Link>
                         <Nav.Link href="/PSI">PSI Level</Nav.Link>
                         <Nav.Link href="/PM">PM 2.5</Nav.Link>
                         <Nav.Link href="/PM">UV Index</Nav.Link>

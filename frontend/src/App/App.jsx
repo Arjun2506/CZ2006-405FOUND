@@ -8,7 +8,7 @@ import { HomePage } from '../HomePage';
 import { LoginPage } from '../LoginPage';
 import { RegisterPage } from '../RegisterPage';
 import NavBar from '../NavBar/NavBar';
-import { SimpleMap } from '../Maps/GoogleMap';
+import SimpleMap from '../Maps/GoogleMap';
 
 class App extends React.Component {
     constructor(props) {
@@ -36,6 +36,7 @@ class App extends React.Component {
                                 <Route path="/login" component={LoginPage} />
                                 <Route path="/register" component={RegisterPage} />
                                 <Route path="/PM" component={RegisterPage} />
+                                <Route path="/map" component={SimpleMap} />
                                 <Redirect from="*" to="/" />
                             </Switch>
                         </Router>
