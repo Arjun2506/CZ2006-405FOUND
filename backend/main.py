@@ -7,7 +7,6 @@ app = Flask(__name__)
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
-
 @app.route('/uv', methods=['POST'])
 def check_uv():
     # Datetime has to be in this format YYYY-MM-DDTHH-MM-SS
