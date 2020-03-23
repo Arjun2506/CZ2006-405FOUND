@@ -2,17 +2,11 @@ import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
 
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
-const heatmapData = {    
-    positions: [
-      {                lat: 1.3521,
-        lng: 103.8198},
-      {lat: 34.7, lng: 28.4}
-    ],
-    options: {   
-      radius: 20,   
-      opacity: 0.6
-  }
-}
+const defaultOptions = {   
+    radius: 100,   
+    opacity: 0.6
+};
+
 export default class SimpleMap extends Component {
     constructor(props) {
         super(props);
@@ -21,20 +15,37 @@ export default class SimpleMap extends Component {
                 lat: 1.3521,
                 lng: 103.8198
             },
-            zoom: 11.5
+            mapData: {
+                positions: [
+                    {lat: 0, lng: 0, weight: 0},
+                ],
+                options: defaultOptions
+            },
+            zoom: 11.4
         };
+        this.onMap = this.onMap.bind(this);
     }
 
+    onMap(data){
+        console.log(data);
+        this.setState({
+            mapData: {
+                positions: data,
+                options: defaultOptions
+            }
+        });
+        console.log(this.state)
+    }
     render() {
         return (
             // Important! Always set the container height explicitly
-            <div style={{ height: '100vh', width: '100%' }}>
+            <div style={{ height: '50vh', width: '100%' }}>
                 <GoogleMapReact
                     bootstrapURLKeys={{ key: 'AIzaSyCi_Io_PnIis5JMPqHK-miIR5BZnqtxMMI' }}
                     defaultCenter={this.state.center}
                     defaultZoom={this.state.zoom}
                     heatmapLibrary={true}
-                    heatmap={heatmapData}
+                    heatmap={this.state.mapData}
                 >
                     <AnyReactComponent
                         lat={this.state.center.lat}

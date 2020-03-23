@@ -9,22 +9,24 @@ import { LoginPage } from '../LoginPage';
 import { RegisterPage } from '../RegisterPage';
 import NavBar from '../NavBar/NavBar';
 import SimpleMap from '../Maps/GoogleMap';
+import PSI from '../Maps/PSI';
+import PM from '../Maps/PM';
+import UV from '../Maps/UV';
 
 class App extends React.Component {
     constructor(props) {
         super(props);
 
         history.listen((location, action) => {
-            // clear alert on location change
             this.props.clearAlerts();
         });
     }
 
     render() {
         const { alert } = this.props;
-        return (<div>
+        return (
+        <div>
             <NavBar />
-            <div className="jumbotron">
                 <div className="container">
                     <div className="col-sm-8 col-sm-offset-2">
                         {alert.message &&
@@ -35,14 +37,15 @@ class App extends React.Component {
                                 <PrivateRoute exact path="/" component={HomePage} />
                                 <Route path="/login" component={LoginPage} />
                                 <Route path="/register" component={RegisterPage} />
-                                <Route path="/PM" component={RegisterPage} />
                                 <Route path="/map" component={SimpleMap} />
+                                <Route path="/psi" component={PSI} />
+                                <Route path="/pm" component={PM} />
+                                <Route path="/uv" component={UV} />
                                 <Redirect from="*" to="/" />
                             </Switch>
                         </Router>
                     </div>
                 </div>
-            </div>
             </div>
         );
     }

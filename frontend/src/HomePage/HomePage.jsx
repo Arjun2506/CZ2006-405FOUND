@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { userActions } from '../_actions';
+import "../Maps/Map.css";
 
 class HomePage extends React.Component {
     componentDidMount() {
@@ -17,11 +18,13 @@ class HomePage extends React.Component {
         return (<div>
             <div className="col-md-6 col-md-offset-3">
                 <h1>Good Day {user.firstName} {user.lastName}!</h1>
-                <h2> {user.firstName}</h2>
-                <h3>All registered users:</h3>
+                <h1><a href="/psi">PSI Past History</a></h1>
+                <h1><a href="/pm">PM2.5 Past History</a></h1>
+                <h1><a href="/uv">UVI Past History</a></h1>
+                {/*
+                                <h3>All registered users:</h3>
                 {users.loading && <em>Loading users...</em>}
-                {users.error && <span className="text-danger">ERROR: {users.error}</span>}
-                {/*users.items &&
+                {users.error && <span className="text-danger">ERROR: {users.error}</span>}users.items &&
                     <ul>
                         {users.items.map((user, index) =>
                             <li key={user.id}>
