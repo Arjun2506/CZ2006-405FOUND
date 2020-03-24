@@ -8,14 +8,32 @@
   "license": "MIT",
   "scripts": {
     "build": "webpack --mode production",
-    "start": "webpack-dev-server --open"
+    "start": "webpack-dev-server --open",
+    "lint:scss": "stylelint 'src/**/*.scss' --syntax scss",
+    "lint:scss:fix": "stylelint 'src/**/*.scss' --syntax scss --fix",
+    "lint:js": "eslint . --ext .js,.jsx",
+    "lint:js:fix": "npm run lint:js -- --fix",
+    "lerna:lint:js": "lerna run lint:js:fix"
+  },
+  "lint-staged": {
+    "packages/**/*.{js,jsx}": [
+      "npm run --silent lerna:lint:js",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "dependencies": {
     "@babel/runtime": "^7.9.2",
     "axios": "^0.19.2",
     "css-loader": "^3.4.2",
+    "eslint": "^6.8.0",
     "google-map-react": "^1.1.7",
     "history": "^4.10.1",
+    "lerna": "^3.20.2",
     "moment": "^2.24.0",
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.0-beta.17",
@@ -37,6 +55,8 @@
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.5",
     "html-webpack-plugin": "^3.2.0",
+    "husky": "^4.2.3",
+    "lint-staged": "^10.0.8",
     "path": "^0.12.7",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0",
