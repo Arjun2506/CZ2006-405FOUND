@@ -11,7 +11,7 @@
     "start": "webpack-dev-server --open",
     "lint:scss": "stylelint 'src/**/*.scss' --syntax scss",
     "lint:scss:fix": "stylelint 'src/**/*.scss' --syntax scss --fix",
-    "lint:js": "eslint . --ext .js,.jsx",
+    "lint:js": "eslint . --ext src/*.js,.jsx",
     "lint:js:fix": "npm run lint:js -- --fix",
     "lerna:lint:js": "lerna run lint:js:fix"
   },
