@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
+import PropTypes from 'prop-types';
 
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 const defaultOptions = {   
@@ -27,14 +28,12 @@ export default class SimpleMap extends Component {
     }
 
     onMap(data){
-        console.log(data);
         this.setState({
             mapData: {
                 positions: data,
                 options: defaultOptions
             }
         });
-        console.log(this.state)
     }
     render() {
         return (
@@ -56,4 +55,8 @@ export default class SimpleMap extends Component {
             </div>
         );
     }
+}
+
+AnyReactComponent.PropTypes = {
+    text: PropTypes.string
 }

@@ -14,7 +14,7 @@ export default class DatePick extends Component {
     this.setState({
       startDate: date
     });
-  };
+  }
   
   render() { 
     return (

@@ -19,7 +19,7 @@ export default class DatePick extends Component {
       date: date
     });
     this.props.function(date.format('YYYY MM DD'));
-  };
+  }
 
   render() {
     return (

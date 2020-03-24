@@ -17,7 +17,7 @@ class App extends React.Component {
     constructor(props) {
         super(props);
 
-        history.listen((location, action) => {
+        history.listen(() => {
             this.props.clearAlerts();
         });
     }

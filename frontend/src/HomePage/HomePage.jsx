@@ -10,7 +10,7 @@ class HomePage extends React.Component {
     }
 
     handleDeleteUser(id) {
-        return (e) => this.props.deleteUser(id);
+        return () => this.props.deleteUser(id);
     }
 
     render() {
@@ -21,23 +21,21 @@ class HomePage extends React.Component {
                 <h1><a href="/psi">PSI Past History</a></h1>
                 <h1><a href="/pm">PM2.5 Past History</a></h1>
                 <h1><a href="/uv">UVI Past History</a></h1>
-                {/*
-                                <h3>All registered users:</h3>
+                <h3>All registered users:</h3>
                 {users.loading && <em>Loading users...</em>}
                 {users.error && <span className="text-danger">ERROR: {users.error}</span>}users.items &&
                     <ul>
-                        {users.items.map((user, index) =>
-                            <li key={user.id}>
-                                {user.firstName + ' ' + user.lastName}
-                                {
-                                    user.deleting ? <em> - Deleting...</em>
+                    {users.items.map((user) =>
+                        <li key={user.id}>
+                            {user.firstName + ' ' + user.lastName}
+                            {
+                                user.deleting ? <em> - Deleting...</em>
                                     : user.deleteError ? <span className="text-danger"> - ERROR: {user.deleteError}</span>
-                                    : <span> - <a onClick={this.handleDeleteUser(user.id)}>Delete</a></span>
-                                }
-                            </li>
-                        )}
-                    </ul>*/
-                }
+                                        : <span> - <a onClick={this.handleDeleteUser(user.id)}>Delete</a></span>
+                            }
+                        </li>
+                    )}
+                </ul>
                 <p>
                     <Link to="/login">Logout</Link>
                 </p>
