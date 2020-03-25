@@ -3,6 +3,7 @@ from flask_cors import CORS, cross_origin
 import requests
 import json
 
+# Flask Server
 app = Flask(__name__)
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
