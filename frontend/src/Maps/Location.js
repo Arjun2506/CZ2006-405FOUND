@@ -8,6 +8,11 @@ import Dropdown from "./Dropdown";
 import QueryOption from "./QueryOption";
 import "./Map.css";
 
+const types = {
+    "pm": "PM2.5",
+    "psi": "PSI",
+    "uv": "UVI"
+}
 export default class Location extends Component {
     constructor(props) {
         super(props);
@@ -54,11 +59,24 @@ export default class Location extends Component {
                         weight: res.data[key]
                     })
                 })
+                var query_type = document.getElementById("queryOption").value;
+                var location = document.getElementById("location").value;
+                var queryData = {}
+                queryData[location] = res.data
+                if(query_type === "uv") {
+                    this.setState({
+                        data: queryData,
+                        location: document.getElementById("location").value,
+                        queryType: document.getElementById("queryOption").value
+                    })
+                }
+                else {
                 this.setState({
                     data: res.data,
                     location: document.getElementById("location").value,
                     queryType: document.getElementById("queryOption").value
                 });
+                }
                 this.refs.map.onMap(resData);
             })
     }
@@ -74,7 +92,7 @@ export default class Location extends Component {
                 <Button variant="primary" onClick={this.changeMap}>Submit</Button>
                 {this.state.data ? <div className="container" id="shadowText">
                 <h1>Value of the {this.state.queryType}</h1>
-                    {`Your location is in the ${this.state.location}. The value `}
+                <h2>{`Your location is in the ${this.state.location}. The value is ${this.state.data[this.state.location]}.`}</h2>
                 </div> : <div></div>
                 }
             </div>
