@@ -13,7 +13,8 @@ export default class NavBar extends Component {
                         <Nav.Link href="/map">Maps</Nav.Link>
                         <Nav.Link href="/psi">PSI Level</Nav.Link>
                         <Nav.Link href="/pm">PM 2.5</Nav.Link>
-                        <Nav.Link href="/PM">UV Index</Nav.Link>
+                        <Nav.Link href="/uv">UV Index</Nav.Link>
+                        <Nav.Link href="/location">Location</Nav.Link>
                     </Nav>
                 </Navbar>
             </div >)
