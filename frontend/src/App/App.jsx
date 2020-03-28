@@ -12,6 +12,7 @@ import SimpleMap from '../Maps/GoogleMap';
 import PSI from '../Maps/PSI';
 import PM from '../Maps/PM';
 import UV from '../Maps/UV';
+import Location from '../Maps/Location';
 
 class App extends React.Component {
     constructor(props) {
@@ -41,6 +42,7 @@ class App extends React.Component {
                                 <Route path="/psi" component={PSI} />
                                 <Route path="/pm" component={PM} />
                                 <Route path="/uv" component={UV} />
+                                <Route path="/location" component={Location} />
                                 <Redirect from="*" to="/" />
                             </Switch>
                         </Router>
