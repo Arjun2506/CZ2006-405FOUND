@@ -4,6 +4,7 @@ import 'react-dates/lib/css/_datepicker.css';
 import { SingleDatePicker, isInclusivelyBeforeDay } from 'react-dates';
 import moment from 'moment';
 
+
 export default class DatePick extends Component {
   constructor(props) {
     super(props);
@@ -14,7 +15,6 @@ export default class DatePick extends Component {
   }
 
   handleChange(date) {
-    console.log(date.format('YYYY MM DD'));
     this.setState({
       date: date
     });
@@ -30,7 +30,7 @@ export default class DatePick extends Component {
         focused={this.state.focused}
         onFocusChange={({ focused }) => this.setState({ focused })}
         id="PSIDate"
-        isOutsideRange={day => !isInclusivelyBeforeDay(day, moment())}
+        isOutsideRange={()=>false}
         function={this.props.function}
       />
       </div>
