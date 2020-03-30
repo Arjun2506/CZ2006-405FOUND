@@ -13,6 +13,7 @@ import PSI from '../Maps/PSI';
 import PM from '../Maps/PM';
 import UV from '../Maps/UV';
 import Location from '../Maps/Location';
+import image from '../Images/nature.jpg';
 
 class App extends React.Component {
     constructor(props) {
@@ -26,6 +27,7 @@ class App extends React.Component {
     render() {
         const { alert } = this.props;
         return (
+        /*<div style={{backgroundImage: `url(${image})`, backgroundRepeat: "no-repeat", backgroundSize: "100% 100%"}}>*/
         <div>
             <NavBar />
                 <div className="container">

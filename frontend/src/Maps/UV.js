@@ -37,7 +37,6 @@ export default class UV extends Component {
                     national: { 'latitude': 0, 'longitude': 0}
                 }
                 const sectors = ["west", "east", "central", "south", "north", "national"]
-                console.log(res.data);
                 var resData = [{
                     lat: locations["central"]['latitude'],
                     lng: locations["central"]['longitude'],

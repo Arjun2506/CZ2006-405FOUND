@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 const defaultOptions = {   
-    radius: 100,   
+    radius: 30,   
     opacity: 0.6
 };
 
@@ -52,6 +52,7 @@ export default class SimpleMap extends Component {
                         text="Center of Singapore"
                     />
                 </GoogleMapReact>
+
             </div>
         );
     }
